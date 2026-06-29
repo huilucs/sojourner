@@ -1,5 +1,25 @@
 const articles = [
   {
+    slug: "meaning-death-and-individual-experience",
+    title: "意义、死亡与个体经验",
+    theme: "Thinking",
+    minutes: 7,
+    lang: "zh-Hans",
+    dek:
+      "人生意义不是宇宙给出的答案，而是个体在生命内部形成的价值体验。",
+    excerpt: "从宇宙视角、死亡和个体经验出发，重新理解人生意义。",
+    body: [
+      "从宇宙视角看，每个人都是短暂的过客。一个人的出生、痛苦、快乐、成功、失败和死亡，在宇宙尺度上都没有特殊地位。宇宙没有目的，没有偏好，也不会评价某个人的一生是否值得。因此，人生并不存在一个被宇宙预先赋予的客观意义。",
+      "死亡使这个问题变得更加冷峻。无论一个人的人生有无意义，最终都会结束。意义不能取消死亡，无意义也不会让死亡更彻底。死亡之后，个人经验归零，那个能够感受意义或无意义的主体也不再存在。因此，如果只从终点看，人生确实是荒凉的。",
+      "但人生的意义如果存在，并不是存在于终点之后，而是存在于生命过程之中。它不一定是宏大的使命，也不一定是永恒的价值，而是在活着的时候，某些体验、关系、选择、创造、理解、痛苦、爱和遗憾，被一个具体的人感受到、珍惜到、认为值得。换句话说，人生意义不是宇宙给出的答案，而是个体在生命内部形成的价值体验。",
+      "这也意味着，人生的意义因人而异。有人从爱里找到意义，有人从创造中找到意义，有人从责任、理解、自由、尊严或探索中找到意义。也有人可能一生只是被本能、社会惯性、恐惧、欲望和责任推着走，并没有真正活出自觉的意义。如果我们已经假设某个人生没有意义，那么它就没有隐藏的意义；剩下的只是生物机制和社会惯性。生存是机制，不是意义；繁衍是功能，不是意义；惯性是事实，不是意义。",
+      "这并不一定是宇宙意义上的悲哀，因为宇宙没有悲哀。但从人的角度看，这确实有一种悲哀：人不只是动物，却常常像动物一样被推着活；人能追问意义，却未必找到意义；人能想象另一种人生，却常常困在现实条件之中。人的痛苦正来自这里：我们既是生命机制的一部分，又意识到自己不只是生命机制。",
+      "来世、永生、转世和祖先信仰，正是在回应这种有限性。它们试图把个体短暂的一生放进更长的结构里，使死亡不再是彻底终点，使亲人不被完全抹去，使善恶、苦难和命运获得某种解释。它们的功能是真实的：安慰、秩序、归属、延续感。但这些功能本身并不能证明它们所指向的对象一定真实。",
+      "所以，最诚实的结论也许是：从宇宙视角看，人生没有统一的客观意义；从个人视角看，意义只能在具体生命的体验、关系、选择和在乎中生成。每个人都是宇宙的过客，但每个人如何理解这一趟旅程，并没有统一答案。",
+      "人生意义不是一个所有人共享的标准答案。它是有限生命中形成的局部答案。它不一定永恒，也不一定宏大。但如果它对那个具体的人真实成立，它就已经成立。"
+    ]
+  },
+  {
     slug: "notes-passed-across-a-table",
     title: "Notes Passed Across a Table",
     theme: "Sharing",
@@ -114,6 +134,7 @@ const readerTime = document.querySelector("#reader-time");
 const readerTitle = document.querySelector("#reader-title");
 const readerDek = document.querySelector("#reader-dek");
 const readerBody = document.querySelector("#reader-body");
+const reader = document.querySelector(".reader");
 
 let activeFilter = "All";
 let activeSlug = articles[0].slug;
@@ -195,6 +216,8 @@ function renderList() {
 function renderReader(slug) {
   const article = articles.find((item) => item.slug === slug) || articles[0];
   activeSlug = article.slug;
+  reader.lang = article.lang || "en";
+  reader.classList.toggle("is-cjk", Boolean(article.lang?.startsWith("zh")));
   readerTheme.textContent = article.theme;
   readerTime.textContent = `${article.minutes} min read`;
   readerTitle.textContent = article.title;
