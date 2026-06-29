@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Sojourner is a collection of essays about life, thinking, and the experiences we learn to share."
+    >
+    <title>Sojourner</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Sojourner home">Sojourner</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#latest">Latest</a>
+        <a href="#themes">Themes</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="opening" aria-labelledby="site-title">
+        <div class="opening-copy">
+          <p class="kicker">A field journal for inward weather</p>
+          <h1 id="site-title">Essays on being alive, staying curious, and learning in common.</h1>
+          <p class="opening-text">
+            Sojourner gathers reflective writing about the small decisions,
+            questions, conversations, and memories that become a life.
+          </p>
+        </div>
+        <figure class="opening-image">
+          <img
+            src="assets/sojourner-table.png"
+            alt="Hands passing a note across a table with notebooks, photographs, and morning light."
+          >
+        </figure>
+      </section>
+
+      <section class="library" id="latest" aria-label="Article collection">
+        <aside class="index-panel" id="themes">
+          <div class="section-heading">
+            <p class="kicker">Index</p>
+            <h2>Collected Notes</h2>
+          </div>
+
+          <label class="search-label" for="article-search">Search</label>
+          <input
+            id="article-search"
+            class="search-input"
+            type="search"
+            placeholder="Attention, courage, sharing..."
+            autocomplete="off"
+          >
+
+          <div class="theme-tabs" role="tablist" aria-label="Filter by theme">
+            <button class="theme-tab is-active" type="button" data-filter="All">All</button>
+            <button class="theme-tab" type="button" data-filter="Life">Life</button>
+            <button class="theme-tab" type="button" data-filter="Thinking">Thinking</button>
+            <button class="theme-tab" type="button" data-filter="Sharing">Sharing</button>
+          </div>
+
+          <div class="article-list" id="article-list" aria-live="polite"></div>
+        </aside>
+
+        <article class="reader" aria-live="polite">
+          <div class="reader-meta">
+            <span id="reader-theme">Sharing</span>
+            <span id="reader-time">5 min read</span>
+          </div>
+          <h2 id="reader-title"></h2>
+          <p class="reader-dek" id="reader-dek"></p>
+          <div class="reader-body" id="reader-body"></div>
+        </article>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-title">
+        <p class="kicker">About</p>
+        <h2 id="about-title">A place for essays that keep moving.</h2>
+        <p>
+          Sojourner is built for writing that does not arrive as doctrine. It is
+          for notes that walk beside the reader: observant, generous, unfinished
+          in the best way.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Sojourner</span>
+      <span>Life, thinking, and shared experience.</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
