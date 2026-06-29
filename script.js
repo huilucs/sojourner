@@ -5,9 +5,8 @@ const articles = [
     theme: "Thinking",
     minutes: 7,
     lang: "zh-Hans",
-    dek:
-      "人生意义不是宇宙给出的答案，而是个体在生命内部形成的价值体验。",
-    excerpt: "从宇宙视角、死亡和个体经验出发，重新理解人生意义。",
+    dek: "",
+    excerpt: "",
     body: [
       "从宇宙视角看，每个人都是短暂的过客。一个人的出生、痛苦、快乐、成功、失败和死亡，在宇宙尺度上都没有特殊地位。宇宙没有目的，没有偏好，也不会评价某个人的一生是否值得。因此，人生并不存在一个被宇宙预先赋予的客观意义。",
       "死亡使这个问题变得更加冷峻。无论一个人的人生有无意义，最终都会结束。意义不能取消死亡，无意义也不会让死亡更彻底。死亡之后，个人经验归零，那个能够感受意义或无意义的主体也不再存在。因此，如果只从终点看，人生确实是荒凉的。",
@@ -201,7 +200,10 @@ function renderList() {
     const excerpt = document.createElement("p");
     excerpt.textContent = article.excerpt;
 
-    card.append(top, title, excerpt);
+    card.append(top, title);
+    if (article.excerpt) {
+      card.append(excerpt);
+    }
     card.addEventListener("click", () => {
       activeSlug = article.slug;
       history.replaceState(null, "", `#${article.slug}`);
@@ -222,6 +224,7 @@ function renderReader(slug) {
   readerTime.textContent = `${article.minutes} min read`;
   readerTitle.textContent = article.title;
   readerDek.textContent = article.dek;
+  readerDek.hidden = !article.dek;
 
   readerBody.replaceChildren();
   article.body.forEach((paragraphText) => {
