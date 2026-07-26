@@ -366,6 +366,33 @@ h1 {
   margin: 0 0 1.1rem;
 }
 
+.reader-body h3,
+.reader-body h4 {
+  margin: 2rem 0 0.8rem;
+  line-height: 1.35;
+}
+
+.reader-body h3 {
+  color: var(--blue);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+}
+
+.reader-body h4 {
+  color: var(--clay);
+  font-size: 1.06rem;
+  font-weight: 800;
+}
+
+.reader-body h3:first-child,
+.reader-body h4:first-child {
+  margin-top: 0;
+}
+
+.reader-body .has-line-breaks {
+  white-space: pre-line;
+}
+
 .reader-body p:first-child::first-letter {
   float: left;
   padding: 0.08rem 0.35rem 0 0;
